@@ -26,7 +26,7 @@ You can view the help for the arguments with `--help` option:
       --delimiter DELIMITER
                             Delimiter of the input file. Default: \t
 
-It generate a directory with two files: the volatility calculation for each element and the number of position shifts for each pair of elements.
+It generate a directory with two files: the volatility calculated for each element and the number of position shifts for each pair of elements.
 
 ### License
 

@@ -1,10 +1,11 @@
 
-# Ranking dynamics and volatility
+Ranking dynamics and volatility
+-------------------------------
 
 This repository offers a script to calculate the volatility for each element of a ranking. It was created for the paper *Ranking dynamics and volatility*. <sup id="a1">[1](#f1)</sup>
 
 
-##Example of use
+### Example of use
 
 We have a file data with two rankings ordered by position in two consecutive years.
 This is a file delimited by tabulator with the column names "element", "year" and "position".

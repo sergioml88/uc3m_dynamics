@@ -1,9 +1,9 @@
 
 # Ranking dynamics and volatility
 
-This repository offers a script to calculate the volatility for each element of a ranking. It was created for the paper *Ranking dynamics and volatility*.[^footnote]
+This repository offers a script to calculate the volatility for each element of a ranking. It was created for the paper *Ranking dynamics and volatility*. <sup>1(#footnote)</sup>
 
-[^footnote]: Garcia-Zorita, C.; Rousseau, R.; Marugan-Lazaro, S.; Sanz-Casado, E. (2017). Ranking dynamics and volatility. Journal of Informetrics.
+<a name="footnote"><sup>1</sup></a> Garcia-Zorita, C.; Rousseau, R.; Marugan-Lazaro, S.; Sanz-Casado, E. (2017). Ranking dynamics and volatility. Journal of Informetrics.
 ----------
 
 ##Example of use

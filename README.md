@@ -7,8 +7,9 @@ This repository offers a script to calculate the volatility for each element of 
 
 ### Example of use
 
-We have a file data with two rankings ordered by position in two consecutive years.
+The script needs a file data with consecutive rankings ordered by position.
 This is a file delimited by tabulator with the column names "element", "year" and "position".
+
 
 The script needs `python 2.7`. It can be running with:
 

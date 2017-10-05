@@ -45,4 +45,4 @@ Once the data processing is finished, a directory with two files will be generat
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-<b id="f1">1</b>  Garcia-Zorita, C.; Rousseau, R.; Marugan-Lazaro, S.; Sanz-Casado, E. (2017). Ranking dynamics and volatility. *Journal of Informetrics*. [↩](#a1)
+<b id="f1">1</b>  Garcia-Zorita, C.; Rousseau, R.; Marugan-Lazaro, S.; Sanz-Casado, E. (2017). Ranking dynamics and volatility. (Paper submit to *Journal of Informetrics* for evaluation). [↩](#a1)

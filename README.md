@@ -7,13 +7,13 @@ This repository offers a script to calculate the volatility for each element of 
 
 ### Example of use
 
-The script needs a file data with consecutive rankings ordered by position.
-This is a file delimited by tabulator with the column names "element", "year" and "position".
+The script needs a data file with consecutive rankings ordered by position.
+File should preferably be tab-delimited with the following column names: "element", "year" and "position".
 
 
 The script needs `python 2.7`. It can be running with:
 
-    python  process_rankings.py --input data_file.csv
+    python  process_rankings.py --input data_file.tsv
 
 You can view the help for the arguments with `--help` option:
 
@@ -27,11 +27,11 @@ You can view the help for the arguments with `--help` option:
       --delimiter DELIMITER
                             Delimiter of the input file. Default: \t
 
-It generate a directory with two files: the volatility calculated for each element and the number of position shifts for each pair of elements.
+Once the data processing is finished, a directory with two files will be generated: one with the volatility measure for each element and the other with number of position shifts for each pair of elements.
 
 ### License
 
-    Copyright (C) 2017 Sergio Marugán Lázaro
+    Copyright (C) 2017 Sergio Marugán Lázaro, LEMI-UC3M
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -45,4 +45,4 @@ It generate a directory with two files: the volatility calculated for each eleme
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-<b id="f1">1</b>  Garcia-Zorita, C.; Rousseau, R.; Marugan-Lazaro, S.; Sanz-Casado, E. (2017). Ranking dynamics and volatility. Journal of Informetrics. [↩](#a1)
+<b id="f1">1</b>  Garcia-Zorita, C.; Rousseau, R.; Marugan-Lazaro, S.; Sanz-Casado, E. (2017). Ranking dynamics and volatility. *Journal of Informetrics*. [↩](#a1)

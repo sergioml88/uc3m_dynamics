@@ -85,7 +85,8 @@ Once the data processing is finished, a directory with two files will be generat
 <sup>[o](#note-o)</sup> **ele2-pos-2**: Position of the second element on second year.
 
 <sup>[p](#note-p)</sup> **shift**: 1 means change of position between **year1** and **year2**.
-<sup>[q](#note-q)</sup> **in_memory**: Memorized value of the position comparison between **element1** and **element2** when occurs a tie, this will value be used on the next comparison.
+
+<sup>[q](#note-q)</sup> **in_memory**: Memorized value of the position comparison between **element1** and **element2** when occurs a tie, this value will be used on the next comparison.
 
 ### License
 

@@ -30,7 +30,7 @@ You can view the help for the arguments with `--help` option:
 Once the data processing is finished, a directory with two files will be generated: one with the volatility measure for each element and the other with number of position shifts for each pair of elements.
 
 
-####Volatility output file format
+#### Volatility output file format
 
 |element <sup><a id="#note-a">a</a></sup>|position shifts <sup><a id="#note-b">b</a></sup>|max. position shifts <sup><a id="#note-c">c</a></sup>|volatility <sup><a id="#note-d">d</a></sup>|num. total links <sup><a id="#note-e">e</a></sup>|num. total years <sup><a id="#note-f">f</a></sup>|
 |:-|:-:|:-:|:-:|:-:|:-:|
@@ -45,7 +45,7 @@ Once the data processing is finished, a directory with two files will be generat
 <sup>[e](#note-e)</sup> Number of elements having at least one position shift with the element.
 <sup>[f](#note-f)</sup> Number of years in which the element appears.
 
-####Position shifts output file format
+#### Position shifts output file format
 
 |event <sup><a id="#note-g">g</a></sup>|element1 <sup><a id="#note-h">h</a></sup>|element2 <sup><a id="#note-i">i</a></sup>|year1 <sup><a id="#note-j">j</a></sup>|ele1-pos-1 <sup><a id="#note-k">k</a></sup>|ele2-pos-1 <sup><a id="#note-l">l</a></sup>|year2 <sup><a id="#note-m">m</a></sup>|ele1-pos-2 <sup><a id="#note-n">n</a></sup>|ele2-pos-2 <sup><a id="#note-o">o</a></sup>|shift <sup><a id="#note-p">p</a></sup>|in_memory <sup><a id="#note-q">q</a></sup>|
 |:-|:-|:-|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|

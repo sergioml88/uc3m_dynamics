@@ -39,10 +39,15 @@ Once the data processing is finished, a directory with two files will be generat
 |...|...|...|...|...|...|
 
 <sup>[a](#note-a)</sup> Element in ranking.
+
 <sup>[b](#note-b)</sup> Total number of position shifts of one element whith others.
+
 <sup>[c](#note-c)</sup> Maximum number of possible position shifts.
+
 <sup>[d](#note-d)</sup> Element volatility.
+
 <sup>[e](#note-e)</sup> Number of elements having at least one position shift with the element.
+
 <sup>[f](#note-f)</sup> Number of years in which the element appears.
 
 #### Position shifts output file format

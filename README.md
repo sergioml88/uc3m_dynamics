@@ -67,14 +67,23 @@ Once the data processing is finished, a directory with two files will be generat
 
 
 <sup>[g](#note-g)</sup> **event**: Event.
+
 <sup>[h](#note-h)</sup> **element1**: First element of comparison.
+
 <sup>[i](#note-i)</sup> **element2**: Second element of comparison.
+
 <sup>[j](#note-j)</sup> **year1**: First year.
+
 <sup>[k](#note-k)</sup> **ele1-pos-1**: Position of the first element on first year.
+
 <sup>[l](#note-l)</sup> **ele2-pos-1**: Position of the second element on first year.
+
 <sup>[m](#note-m)</sup> **year2**: Second year.
+
 <sup>[n](#note-n)</sup> **ele1-pos-2**: Position of the first element on second year.
+
 <sup>[o](#note-o)</sup> **ele2-pos-2**: Position of the second element on second year.
+
 <sup>[p](#note-p)</sup> **shift**: 1 means change of position between **year1** and **year2**.
 <sup>[q](#note-q)</sup> **in_memory**: Memorized value of the position comparison between **element1** and **element2** when occurs a tie, this will value be used on the next comparison.
 

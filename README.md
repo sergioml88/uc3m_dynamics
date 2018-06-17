@@ -2,18 +2,39 @@
 Ranking dynamics and volatility
 -------------------------------
 
-This repository offers a script to calculate the volatility for each element of a ranking. It was created for the paper *Ranking dynamics and volatility*. <sup id="a1">[1](#f1)</sup>
+This repository offers a python module/script to calculate the volatility for each element of a ranking. It was created for the paper *Ranking dynamics and volatility*. <sup id="a1">[1](#f1)</sup>
+
+
+### Installation
+
+The script needs `python 2.7` and some libraries:
+
+`unicodecsv==0.14.1`
+
+`tables==3.2.2`
+
+`matplotlib==1.5.1`
+
+`pandas==0.17.1`
+
+`seaborn==0.8.1`
+
+`numpy==1.11.0`
+
+This libraries can be installed through pip with the requirements.txt file:
+
+`pip install -r requirements.txt`
 
 
 ### Example of use
 
-The script needs a data file with consecutive rankings ordered by position.
-File should preferably be tab-delimited with the following column names: "element", "year" and "position".
+The script needs a data file with all the rankings.
+File should be textplain (csv) delimited by semicolon with the following column names: "element", "period" and "position".
 
 
-The script needs `python 2.7`. It can be running with:
+It can be running with:
 
-    python  process_rankings.py --input data_file.tsv
+    python  process_rankings.py --input data_file.csv
 
 You can view the help for the arguments with `--help` option:
 
@@ -25,68 +46,102 @@ You can view the help for the arguments with `--help` option:
       -h, --help            show this help message and exit
       --input INPUT         File with the ranking.
       --delimiter DELIMITER
-                            Delimiter of the input file. Default: \t
+                            Delimiter of the input file. Default: ";"
 
-Once the data processing is finished, a directory with two files will be generated: one with the volatility measure for each element and the other with number of position shifts for each pair of elements.
+Once the data processing is finished, a file with format HDF5 file will be created. This contains several tables with the following data:
+
+* The loaded ranking.
+* The events (comparison for each pair of active elements).
+* The number of position shifts for each pair of elements.
+* The volatility measure, maximum and current position shifts for each element.
+
+See [docs/process_rankings.md](https://github.com/smarugan/uc3m_dynamics/docs/process_rankings.md) for more information about the module <b>process_rankings</b>.
+
+### Example of input data
+
+#### Input ranking file
+
+|category_jcr|period|element|position|
+|:-|:-:|:-:|:-:|
+|...|...|...|...|
+|INFORMATION SCIENCE & LIBRARY SCIENCE|1997|J AM MED INFORM ASSN|1|
+|INFORMATION SCIENCE & LIBRARY SCIENCE|1997|MIS QUART|2|
+|INFORMATION SCIENCE & LIBRARY SCIENCE|1997|LIBR QUART|3|
+|...|...|...|...|
 
 
-#### Volatility output file format
+Only the columns "element", "period" and "position" are required in the input file.
 
-|element <sup><a id="#note-a">a</a></sup>|position shifts <sup><a id="#note-b">b</a></sup>|max. position shifts <sup><a id="#note-c">c</a></sup>|volatility <sup><a id="#note-d">d</a></sup>|num. total links <sup><a id="#note-e">e</a></sup>|num. total years <sup><a id="#note-f">f</a></sup>|
-|:-|:-:|:-:|:-:|:-:|:-:|
-|AFR J LIBR ARCH INFO|21|176|11.93|15|3|
-|ANNU REV INFORM SCI|91|176|51.70|88|1|
-|...|...|...|...|...|...|
+### Example of output data
+
+The .h5 file generated will be on [HDF5](https://support.hdfgroup.org/HDF5/) format. You can use several tools to see the output format like [viTables](http://vitables.org/) or [h5-utilities from the HDF Group](https://support.hdfgroup.org/products/hdf5_tools/#tools).
+
+A csv file will be generated for each output data. This files are explained below.
+
+#### Position shifts and volatility for each element (table/file: TotalResults)
+
+
+|element <sup><a id="#note-a">a</a></sup>|maximum position shifts <sup><a id="#note-b">b</a></sup>|position shifts <sup><a id="#note-c">c</a></sup>|volatility <sup><a id="#note-d">d</a></sup>|
+|:-|:-:|:-:|:-:|
+|...|...|...|...|
+|TRANSINFORMACAO [0103-3786]|2204|256|0.1161524500907441|
+|WILSON LIBR BULL [0043-5651]|2204|237|0.1075317604355717|
+|Z BIBL BIBL [0044-2380]|2204|187|0.08484573502722323|
+|...|...|...|...|
 
 <sup>[a](#note-a)</sup> Element in ranking.
 
-<sup>[b](#note-b)</sup> Total number of position shifts of one element whith others.
+<sup>[b](#note-b)</sup> Maximum number of possible position shifts.
 
-<sup>[c](#note-c)</sup> Maximum number of possible position shifts.
+<sup>[c](#note-c)</sup> Total number of position shifts with others elements.
 
 <sup>[d](#note-d)</sup> Element volatility.
 
-<sup>[e](#note-e)</sup> Number of elements having at least one position shift with the element.
 
-<sup>[f](#note-f)</sup> Number of years in which the element appears.
+#### Position shifts between elements (table/file: PartialResults)
 
-#### Position shifts output file format
-
-|event <sup><a id="#note-g">g</a></sup>|element1 <sup><a id="#note-h">h</a></sup>|element2 <sup><a id="#note-i">i</a></sup>|year1 <sup><a id="#note-j">j</a></sup>|ele1-pos-1 <sup><a id="#note-k">k</a></sup>|ele2-pos-1 <sup><a id="#note-l">l</a></sup>|year2 <sup><a id="#note-m">m</a></sup>|ele1-pos-2 <sup><a id="#note-n">n</a></sup>|ele2-pos-2 <sup><a id="#note-o">o</a></sup>|shift <sup><a id="#note-p">p</a></sup>|in_memory <sup><a id="#note-q">q</a></sup>|
-|:-|:-|:-|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-|...|...|...|...|...|...|...|...|...|...|...|
-|(2013, 2014)|AUST ACAD RES LIBR|J GLOB INF MANAG|2013|50|55|2014|60|60|0|<|
-|(2014, 2015)|AUST ACAD RES LIBR|J GLOB INF MANAG|2014|60|60|2015|58|72|0||
-|...|...|...|...|...|...|...|...|...|...|...|
-|(2013, 2014)|J DOC|J INF SCI|2013|32|29|2014|36|26|0||
-|(2014, 2015)|J DOC|J INF SCI|2014|36|26|2015|38|43|1||
-|...|...|...|...|...|...|...|...|...|...|...|
-|(2013, 2014)|SCIENTOMETRICS|TELEMAT INFORM|2013|8|41|2014|10|30|0||
-|(2014, 2015)|SCIENTOMETRICS|TELEMAT INFORM|2014|10|30|2015|17|14|1||
-|...|...|...|...|...|...|...|...|...|...|...|
+|element1 <sup><a id="#note-e">e</a></sup>|element2 <sup><a id="#note-f">f</a></sup>|position shifts <sup><a id="#note-g">g</a></sup>|
+|:-|:-:|:-:|
+|...|...|...|
+|Z BIBL BIBL [0044-2380]|TELEMAT INFORM [0736-5853]|1|
+|Z BIBL BIBL [0044-2380]|TRANSINFORMACAO [0103-3786]|3|
+|Z BIBL BIBL [0044-2380]|WILSON LIBR BULL [0043-5651]|1|
+|...|...|...|
 
 
-<sup>[g](#note-g)</sup> **event**: Event.
+<sup>[e](#note-e)</sup> **element1**: First element of comparison.
 
-<sup>[h](#note-h)</sup> **element1**: First element of comparison.
+<sup>[g](#note-g)</sup> **element2**: Second element of comparison.
 
-<sup>[i](#note-i)</sup> **element2**: Second element of comparison.
+<sup>[f](#note-f)</sup> **position_shifts**: Position of the first element on first period.
 
-<sup>[j](#note-j)</sup> **year1**: First year.
 
-<sup>[k](#note-k)</sup> **ele1-pos-1**: Position of the first element on first year.
+#### Difference between elements' positions foreach period (table/file: Event)
 
-<sup>[l](#note-l)</sup> **ele2-pos-1**: Position of the second element on first year.
+|element1 <sup><a id="#note-g">g</a></sup>|position1 <sup><a id="#note-h">h</a></sup>|element2 <sup><a id="#note-i">i</a></sup>|position2 <sup><a id="#note-j">j</a></sup>|period <sup><a id="#note-k">k</a></sup>|difference <sup><a id="#note-l">l</a></sup>|difference_memory <sup><a id="#note-m">m</a></sup>
+|:-|:-:|:-:|:-:|:-:|:-:|:-:|
+|...|...|...|...|...|...|...|
+|Z BIBL BIBL [0044-2380]|1222|TRANSINFORMACAO [0103-3786]|1228|2015|6|0|
+|Z BIBL BIBL [0044-2380]|1312|TRANSINFORMACAO [0103-3786]|1304|2016|-8|0|
+|Z BIBL BIBL [0044-2380]|43|WILSON LIBR BULL [0043-5651]|47|1997|4|0|
+|...|...|...|...|...|...|...|
 
-<sup>[m](#note-m)</sup> **year2**: Second year.
 
-<sup>[n](#note-n)</sup> **ele1-pos-2**: Position of the first element on second year.
+<sup>[e](#note-g)</sup> **element1**: First element of comparison.
 
-<sup>[o](#note-o)</sup> **ele2-pos-2**: Position of the second element on second year.
+<sup>[f](#note-f)</sup> **position1**: Position of the first element on first period.
 
-<sup>[p](#note-p)</sup> **shift**: 1 means change of position between **year1** and **year2**.
+<sup>[g](#note-g)</sup> **element2**: Second element of comparison.
 
-<sup>[q](#note-q)</sup> **in_memory**: Memorized value of the position comparison between **element1** and **element2** when occurs a tie, this value will be used on the next comparison.
+<sup>[h](#note-h)</sup> **position2**: Position of the second element on first period.
+
+<sup>[i](#note-i)</sup> **period**: Period of comparision.
+
+<sup>[j](#note-j)</sup> **difference**: Difference between position of element2 and element1.
+
+<sup>[k](#note-k)</sup> **difference_memory**: Difference between position of element2 and element1 before becomes tied.
+
+
 
 ### License
 

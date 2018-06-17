@@ -51,6 +51,7 @@ class Table(tables.Table):
     """
     def __init__(self, tablename, filename):
         self.tablename = tablename
+        self.filename = filename
         self.file = tables.open_file(filename, mode="a", title=tablename)
 
         try:
@@ -91,6 +92,23 @@ class Table(tables.Table):
 
     #def __get_description(self):
     #    return { attr[0]:attr[1] for attr in inspect.getmembers(self) if type(attr[1]).__name__ in self.valid_types }
+
+    def export2csv(self):
+        basename = '.'.join(self.filename.split(".")[:-1])
+        filename = '%s.%s.csv' % (basename, self.tablename)
+
+        df = open(filename, 'w')
+        attrs = [a[0] for a in self.__get_description()]
+
+        writer = csv.DictWriter(df, fieldnames=attrs) 
+        writer.writeheader()
+
+        for row in self:
+            row = {a:row[a] for a in attrs}
+            writer.writerow(row)
+
+        df.close()
+            
 
 """
 Table with the ranking data.
@@ -501,6 +519,15 @@ class Volatility:
         print
         print
 
+    def export2csv(self):
+        """
+        Export the tables from HDF5 format to csv.
+        """
+        self.ranking.export2csv()
+        self.event.export2csv()
+        self.partial_result.export2csv()
+        self.total_result.export2csv()
+
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='Calculate the volatility foreach element in a ranking.')
@@ -519,6 +546,7 @@ if __name__ == '__main__':
 
     volatility = Volatility(filename=inputfile, delimiter=delimiter)
     volatility.process()
+    volatility.export2csv()
     #volatility.draw()
 
 

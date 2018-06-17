@@ -55,7 +55,7 @@ Once the data processing is finished, a file with format HDF5 file will be creat
 * The number of position shifts for each pair of elements.
 * The volatility measure, maximum and current position shifts for each element.
 
-See [docs/process_rankings.md](https://github.com/smarugan/uc3m_dynamics/docs/process_rankings.md) for more information about the module <b>process_rankings</b>.
+See [docs/process_rankings.md](https://github.com/smarugan/uc3m_dynamics/blob/master/docs/process_rankings.md) for more information about the module <b>process_rankings</b>.
 
 ### Example of input data
 

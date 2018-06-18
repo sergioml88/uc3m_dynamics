@@ -111,14 +111,14 @@ A csv file will be generated for each output data. This files are explained belo
 
 <sup>[e](#note-e)</sup> **element1**: First element of comparison.
 
-<sup>[g](#note-g)</sup> **element2**: Second element of comparison.
+<sup>[f](#note-f)</sup> **element2**: Second element of comparison.
 
-<sup>[f](#note-f)</sup> **position_shifts**: Position of the first element on first period.
+<sup>[g](#note-g)</sup> **position_shifts**: Position of the first element on first period.
 
 
 #### Difference between elements' positions foreach period (table/file: Event)
 
-|element1 <sup><a id="#note-g">g</a></sup>|position1 <sup><a id="#note-h">h</a></sup>|element2 <sup><a id="#note-i">i</a></sup>|position2 <sup><a id="#note-j">j</a></sup>|period <sup><a id="#note-k">k</a></sup>|difference <sup><a id="#note-l">l</a></sup>|difference_memory <sup><a id="#note-m">m</a></sup>
+|element1 <sup><a id="#note-h">h</a></sup>|position1 <sup><a id="#note-i">i</a></sup>|element2 <sup><a id="#note-j">j</a></sup>|position2 <sup><a id="#note-k">k</a></sup>|period <sup><a id="#note-l">l</a></sup>|difference <sup><a id="#note-m">m</a></sup>|difference_memory <sup><a id="#note-n">n</a></sup>|
 |:-|:-:|:-:|:-:|:-:|:-:|:-:|
 |...|...|...|...|...|...|...|
 |Z BIBL BIBL [0044-2380]|1222|TRANSINFORMACAO [0103-3786]|1228|2015|6|0|
@@ -127,19 +127,19 @@ A csv file will be generated for each output data. This files are explained belo
 |...|...|...|...|...|...|...|
 
 
-<sup>[e](#note-g)</sup> **element1**: First element of comparison.
+<sup>[h](#note-h)</sup> **element1**: First element of comparison.
 
-<sup>[f](#note-f)</sup> **position1**: Position of the first element on first period.
+<sup>[i](#note-i)</sup> **position1**: Position of the first element on first period.
 
-<sup>[g](#note-g)</sup> **element2**: Second element of comparison.
+<sup>[j](#note-j)</sup> **element2**: Second element of comparison.
 
-<sup>[h](#note-h)</sup> **position2**: Position of the second element on first period.
+<sup>[k](#note-k)</sup> **position2**: Position of the second element on first period.
 
-<sup>[i](#note-i)</sup> **period**: Period of comparision.
+<sup>[l](#note-l)</sup> **period**: Period of comparision.
 
-<sup>[j](#note-j)</sup> **difference**: Difference between position of element2 and element1.
+<sup>[m](#note-m)</sup> **difference**: Difference between position of element2 and element1.
 
-<sup>[k](#note-k)</sup> **difference_memory**: Difference between position of element2 and element1 before becomes tied.
+<sup>[n](#note-n)</sup> **difference_memory**: Difference between position of element2 and element1 before becomes tied.
 
 
 
